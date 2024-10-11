@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SalesNer - B2B Appointment Setting Services</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS for extra styling -->
+    <style>
+
+        /* Sticky CTA Button Styling */
+.sticky-cta {
+    position: fixed;        /* Fixes the button on the screen */
+    right: 20px;            /* Position from the right */
+    bottom: 40px;           /* Position from the bottom */
+    padding: 15px 30px;     /* Button size */
+    background-color: #007bff;  /* Background color */
+    color: #fff;            /* Text color */
+    font-size: 1.2rem;      /* Text size */
+    border-radius: 50px;    /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);  /* Subtle shadow */
+    transition: all 0.3s ease;  /* Smooth transition for hover effect */
+    z-index: 1000;          /* Ensures it stays on top of other content */
+    text-align: center;     /* Centers text inside the button */
+    text-decoration: none;  /* Removes the underline */
+}
+
+/* Hover Effect */
+.sticky-cta:hover {
+    background-color: #0056b3;  /* Darker background on hover */
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.5);  /* Larger shadow on hover */
+    transform: translateY(-3px);  /* Slightly lift the button on hover */
+}
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f7fa;
+            color: #001F41;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #001F41, #12CEF9);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .hero-section p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            background-color: #12CEF9;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0ea7c1;
+        }
+
+        /* About Us Section */
+        .about-section {
+            padding: 50px 0;
+            background-color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        .about-section:hover {
+            background-color: #f0f8ff;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            background-color: #12CEF9;
+            border-radius: 50%;
+            opacity: 0.1;
+            transform: translate(-50%, -50%);
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        /* Process Section */
+        .process-section {
+            background-color: #f0f8ff;
+            padding: 60px 0;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: scale(1.05);
+        }
+
+        .process-step .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #12CEF9;
+        }
+
+        .process-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #001F41;
+        }
+
+        .process-step p {
+            font-size: 1rem;
+            color: #001F41;
+        }
+
+        /* Client Testimonials Section */
+        .testimonials-section {
+            background-color: #001F41;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial {
+            padding: 20px;
+            background-color: #12CEF9;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            transition: transform 0.4s;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-10px);
+        }
+
+        .testimonial p {
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .testimonial footer {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 10px;
+            color: white;
+        }
+
+        /* Call to Action Section */
+        .cta-buttons {
+            text-align: center;
+        }
+
+        .cta-buttons .btn {
+            margin: 10px;
+        }
+        .btn-quote {
+    background-color: white; /* Gold color */
+    border: none;
+    color: #001F41;
+    font-weight: bold;
+}
+
+.btn-quote:hover {
+    background-color: #white; /* Slightly darker gold on hover */
+}
+
+
+        /* Footer */
+        footer {
+            padding: 20px 0;
+            background-color: #001F41;
+            color: white;
+            text-align: center;
+        }
+
+        footer a {
+            color: #12CEF9;
+            text-decoration: none;
+        }
+        .social-icons a {
+    margin: 0 10px;
+    color: #12CEF9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: white; /* Change color on hover */
+}
+
+
+/* Footer CTA */
+.footer-cta {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn-footer-cta {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 12px 25px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-footer-cta:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Book More Meetings. Boost Your Sales Pipeline.</h1>
+            <p>SalesNer helps B2B businesses secure more appointments through tailored outreach strategies. Maximize your sales opportunities today!</p>
+            <a href="#contact" class="btn btn-primary btn-lg">Schedule a call with Us</a>
+        </div>
+    </section>
+
+    <!-- About Section with More Visuals -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About SalesNer</h2>
+            <p>SalesNer specializes in high-quality B2B appointment setting services, designed to bring you closer to your sales goals. We create highly personalized outreach campaigns that connect you with decision-makers in your target market.</p>
+        </div>
+    </section>
+
+    <!-- Process Section with More Visual Effects -->
+<section id="process" class="process-section">
+    <div class="container">
+        <h2 class="text-center mb-5">Our Process</h2>
+        <div class="row">
+            <!-- Step 1: Business Analysis -->
+            <div class="col-md-4 process-step">
+                <div class="icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Business Analysis</h3>
+                <p>We begin by thoroughly understanding your business, goals, and target market. This ensures that our strategy aligns with your growth objectives.</p>
+            </div>
+
+            <!-- Step 2: Ideal Customer Profile (ICP) Development -->
+            <div class="col-md-4 process-step">
+                <div class="icon">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <h3>ICP Development</h3>
+                <p>Next, we define and refine your Ideal Customer Profile (ICP) by identifying key industry sectors, pain points, and decision-makers who are most likely to benefit from your offerings.</p>
+            </div>
+
+            <!-- Step 3: Target List Creation -->
+            <div class="col-md-4 process-step">
+                <div class="icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Target List Creation</h3>
+                <p>We then build a precise list of potential clients based on your ICP, utilizing advanced data sourcing techniques to ensure high-quality leads.</p>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <!-- Step 4: Outreach Strategy -->
+            <div class="col-md-4 process-step">
+                <div class="icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3>Outreach Strategy</h3>
+                <p>Our team designs personalized outreach campaigns, using email and LinkedIn, that speak directly to your prospects' needs, maximizing engagement.</p>
+            </div>
+
+            <!-- Step 5: Booking & Follow-Up -->
+            <div class="col-md-4 process-step">
+                <div class="icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Meeting Booking & Follow-Up</h3>
+                <p>We handle all the outreach, booking qualified meetings with decision-makers, and ensure timely follow-ups to keep the sales momentum going.</p>
+            </div>
+
+            <!-- Step 6: Reporting & Optimization -->
+            <div class="col-md-4 process-step">
+                <div class="icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Reporting & Optimization</h3>
+                <p>Finally, we provide detailed reports on campaign performance and continuously optimize the approach to achieve better results and maximize ROI.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Sticky CTA Button -->
+<a href="#booking" class="sticky-cta btn btn-primary">Book a Free Consultation</a>
+
+
+    <!-- Testimonials Section with Enhanced Visuals -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="mb-5 text-center">What Our Clients Say</h2>
+    
+            <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="testimonial text-center">
+                                    <p>"SalesNer transformed our lead generation strategy. We saw a significant increase in qualified meetings and ultimately, revenue. Their expertise and personalized approach made a huge difference."</p>
+                                    <footer>- John Doe, CEO of TechFirm</footer>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="testimonial text-center">
+                                    <p>"Thanks to SalesNer, our sales pipeline is always full of high-quality leads. They handle all the legwork so we can focus on closing deals. We couldn't ask for a better partner."</p>
+                                    <footer>- Jane Smith, Head of Sales at InnovateX</footer>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="testimonial text-center">
+                                    <p>"SalesNer’s attention to detail and proactive approach have been game-changers for our business. We now have a steady stream of appointments with key decision-makers."</p>
+                                    <footer>- Robert Brown, COO of MarketLeads</footer>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="testimonial text-center">
+                                    <p>"We have been impressed with the quality of leads provided by SalesNer. Their team is responsive and truly understands our business needs."</p>
+                                    <footer>- Linda Green, VP of Sales at GrowthCo</footer>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Disable Carousel Controls -->
+            </div>
+        </div>
+    </section>
+
+    
+    
+    
+
+    <!-- Footer -->
+   <!-- Footer -->
+   <footer>
+    <p>&copy; 2024 SalesNer. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+    <div class="social-icons">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+    </div>
+</footer>
+
+
+
